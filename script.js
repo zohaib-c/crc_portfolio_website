@@ -48,7 +48,7 @@ function updateVisitorCounter() {
                   console.log('Updating counter with', visitorCount);
 
                   if (counterElement) {
-                      counterElement.innerText = visitorCount;
+                      counterElement.innerHTML = visitorCount;
                   }
               } else {
                   console.error('Invalid response for visitor counter:', response);
