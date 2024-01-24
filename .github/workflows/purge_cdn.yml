@@ -1,0 +1,23 @@
+name: Purge Azure CDN Cache on Push
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+    purge:
+        runs-on: ubuntu-latest
+        
+        steps:
+        - name: Azure Service Principal Login
+          uses: azure/login@v1
+          with:
+            creds: ${{ secrets.AZURE_CREDENTIALS }}
+        
+        - name: Purge Azure CDN Cache
+          run:
+            az cdn endpoint purge -n ${{ secrets.AZURE_CDN_ENDPOINT }} --profile-name ${{ secrets.AZURE_CDN_PROFILE_NAME }} --content-paths "/*" --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} --no-wait
+            
+        - name: Azure Service Principal Logout
+          run: |
+            az logout
