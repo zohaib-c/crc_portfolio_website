@@ -5,14 +5,15 @@ on:
       - master
 
 jobs:
-  upload:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: bacongobbler/azure-blob-storage-upload@main
-        with:
-          source_dir: './zohaibzaheer.com'
-          account_name: '${{ secrets.ACCOUNTNAME }}'
-          container_name: '$web'
-          connection_string: ${{ secrets.CONNECTIONSTRING }}
-          sync: 'true'
+    upload:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v2
+        - uses: bacongobbler/azure-blob-storage-upload@main
+          with:
+            source_dir: './zohaibzaheer.com'
+            account_name: '${{ secrets.ACCOUNTNAME }}'
+            container_name: '$web'
+            connection_string: ${{ secrets.CONNECTIONSTRING }}
+            sync: 'true'
+            
