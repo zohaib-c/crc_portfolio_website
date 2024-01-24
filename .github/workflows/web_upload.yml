@@ -16,4 +16,3 @@ jobs:
           container_name: '$web'
           connection_string: ${{ secrets.CONNECTIONSTRING }}
           sync: 'true'
-          overwrite: 'true'
