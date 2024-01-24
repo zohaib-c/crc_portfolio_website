@@ -1,4 +1,4 @@
-name: Purge Azure CDN Cache on Push
+name: Purge Azure CDN
 on:
   push:
     branches:
